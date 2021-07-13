@@ -1,1 +1,7 @@
-# kafka_homework
+# Project description
+
+# Project structure
+
+# Project installation
+
+# Tests Execution
