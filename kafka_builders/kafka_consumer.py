@@ -6,6 +6,10 @@ folderName = "./kafka_certificates/"
 
 
 def create_consumer(bootstrap_servers=None):
+    """
+    :param bootstrap_servers: URI Kafka service
+    :return: Kafka Consumer
+    """
     return KafkaConsumer(bootstrap_servers="kafka-35b85ff8-eposta-e940.aivencloud.com:22343",
                          security_protocol="SSL",
                          ssl_cafile=folderName + "ca.pem",
