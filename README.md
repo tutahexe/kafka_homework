@@ -24,6 +24,7 @@ Set `'kafka.auto_create_topics_enable'` to `'True'` and enable `'Kafka REST API 
     "period": 30
 }
 ```
+Regexp_pattern is optional.
 ## Project configuration
 From root folder run 'pip install -r requirements.txt'
 

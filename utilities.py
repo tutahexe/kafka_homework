@@ -13,4 +13,4 @@ def read_value_from_config(parameter):
     try:
         return file[parameter]
     except KeyError:
-        print("not found")
+        return None
