@@ -31,5 +31,3 @@ From root folder run 'pip install -r requirements.txt'
 * Create a table to store results: `main.py --init`
 * Run consumer: `main.py --consumer`
 * Run producer: `main.py --producer`
-
-# Tests Execution
