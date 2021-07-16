@@ -40,14 +40,14 @@ def producer_sender(producer, topic, url, st_code, time, reg_exp):
     producer.flush()
 
 
-def producer_loop(url, producer, cooldown, topic, pattern):
+def producer_loop(url, producer, timeout, topic, pattern):
     """
     Producer loop. Endless loop to check website for data and send this message to the Kafka.
     """
     while True:
         status_code, elapsed_time, reg_exp = check_url(url, pattern)
         producer_sender(producer, topic, url, status_code, elapsed_time, reg_exp)
-        sleep(cooldown)
+        sleep(timeout)
 
 
 def consumer_loop(consumer):
@@ -70,7 +70,7 @@ def main():
     parser.add_argument('--init', action='store_true')
     args = parser.parse_args()
     kafka = read_value_from_config('kafka_connection')
-    period = read_value_from_config('period')
+    timeout = read_value_from_config('timeout')
     topic = read_value_from_config('topic')
     url = read_value_from_config('site')
     pattern = read_value_from_config('regexp_pattern')
@@ -78,7 +78,7 @@ def main():
         init_db()
     if args.producer:
         producer = create_producer(kafka)
-        producer_loop(url, producer, period, topic, pattern)
+        producer_loop(url, producer, timeout, topic, pattern)
     elif args.consumer:
         consumer = create_consumer(kafka)
         consumer.subscribe(topic)

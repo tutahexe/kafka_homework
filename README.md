@@ -18,13 +18,18 @@ Set `'kafka.auto_create_topics_enable'` to `'True'` and enable `'Kafka REST API 
 {
     "db_connection" : "service_uri",
     "kafka_connection" : "service_uri",
-    "regexp_pattern": "(saaa.*)",
-    "site": "https://aiven.io/blog?posts=30&search=kafka",
     "topic": "testy",
-    "period": 30
+    "site": "https://aiven.io/blog?posts=30&search=kafka",
+    "regexp_pattern": "(saaa.*)",
+    "timeout": 30
 }
 ```
-Regexp_pattern is optional.
+* db_connection - Service URI from aiven console (PostgreSQL)
+* kafka_connection - Service URI from aiven console (Kafka)
+* topic - topic used by consumer and producer for communication
+* site - URL for check
+* regexp_pattern - optional regular expression for validation
+* timeout - timeout between checks
 ## Project configuration
 From root folder run 'pip install -r requirements.txt'
 
